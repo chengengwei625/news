@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'toutiao';
+  /* Project id 3309253 */
+  src: url('//at.alicdn.com/t/font_3309253_g3jix9npr4n.woff2?t=1649943791022') format('woff2'), url('//at.alicdn.com/t/font_3309253_g3jix9npr4n.woff?t=1649943791022') format('woff'), url('//at.alicdn.com/t/font_3309253_g3jix9npr4n.ttf?t=1649943791022') format('truetype'), url('//at.alicdn.com/t/font_3309253_g3jix9npr4n.svg?t=1649943791022#toutiao') format('svg');
+}
+.toutiao {
+  font-family: 'toutiao' !important;
+  font-size: 15px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.toutiao-guanji:before {
+  content: '\e678';
+}

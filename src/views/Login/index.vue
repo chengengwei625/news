@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       user: {
-        mobile: '13911111111',
+        mobile: '13076586371',
         code: '246810'
       }
     }
@@ -41,6 +41,10 @@ export default {
         console.log(res)
         this.$toast.success({ message: '登录成功', duration: 500 })
         setToken(res.data.data.token)
+        localStorage.setItem('refresh_token', res.data.data.refresh_token)
+        this.$router.replace({
+          path: this.$route.query.path || 'layout/home'
+        })
       } catch (err) {
         this.$toast.fail({ message: '登录失败', duration: 500 })
       }

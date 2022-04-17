@@ -1,4 +1,4 @@
-const key = 'toutiao'
+export const key = 'toutiao'
 export const setToken = token => {
   localStorage.setItem(key, token)
 }

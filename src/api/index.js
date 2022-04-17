@@ -41,6 +41,16 @@ export const loginAPI = ({ mobile, code }) => {
     }
   })
 }
+// 用户-刷新token
+export const getNewTokenAPI = () => {
+  return request({
+    url: '/v1_0/authorizations',
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('refresh_token')}`
+    }
+  })
+}
 // 用户-关注
 export const userFollowedAPI = ({ userId }) => {
   return request({
@@ -64,7 +74,7 @@ export const userProfileAPI = () => {
     url: '/v1_0/user/profile'
   })
 }
-//用户-更新头像
+// 用户-更新头像
 export const updateUserPhotoAPI = fd => {
   return request({
     url: '/v1_0/user/photo',
@@ -108,6 +118,54 @@ export const updateUserProfileAPI = dataObj => {
     url: '/v1_0/user/profile',
     method: 'PATCH', //部分更新,PUT全部更新
     data: obj
+  })
+}
+// 文章反馈-不感兴趣
+export const dislikeArticleAPI = artId => {
+  return request({
+    url: '/v1_0/article/dislikes',
+    method: 'POST',
+    // headers: {
+    //   Authorization: `Bearer ${localStorage.getItem(key)}`
+    // },
+    data: {
+      target: artId
+    }
+  })
+}
+// 文章反馈-反馈垃圾内容
+export const reportArticleAPI = ({ artId, type }) => {
+  return request({
+    url: '/v1_0/article/reports',
+    method: 'POST',
+    // headers: {
+    //   Authorization: `Bearer ${localStorage.getItem(key)}`
+    // },
+    data: {
+      target: artId,
+      type: type,
+      remark: '如果你想写,你可以在逻辑页面判断下,如果点击类型是0,再弹出输入框输入参数'
+    }
+  })
+}
+// 搜索-联想菜单列表
+export const suggestListAPI = ({ keyworks }) => {
+  return request({
+    url: '/v1_0/suggestion',
+    params: {
+      q: keyworks
+    }
+  })
+}
+// 搜索-搜索结果列表
+export const searchResultAPI = ({ page = 1, per_page = 10, q }) => {
+  return request({
+    url: '/v1_0/search',
+    params: {
+      page,
+      per_page,
+      q
+    }
   })
 }
 // 文章-获取列表
@@ -192,58 +250,9 @@ export const commentSendAPI = ({ id, content, art_id = null }) => {
     data: obj
   })
 }
-// 文章反馈-反馈垃圾内容
+// 文章-获取详情
 export const detailAPI = ({ artId }) => {
   return request({
     url: `/v1_0/articles/${artId}`
-  })
-}
-// 文章反馈-不感兴趣
-export const dislikeArticleAPI = artId => {
-  return request({
-    url: '/v1_0/article/dislikes',
-    method: 'POST',
-    // headers: {
-    //   Authorization: `Bearer ${localStorage.getItem(key)}`
-    // },
-    data: {
-      target: artId
-    }
-  })
-}
-// 文章反馈-反馈垃圾内容
-export const reportArticleAPI = ({ artId, type }) => {
-  return request({
-    url: '/v1_0/article/reports',
-    method: 'POST',
-    // headers: {
-    //   Authorization: `Bearer ${localStorage.getItem(key)}`
-    // },
-    data: {
-      target: artId,
-      type: type,
-      remark: '如果你想写,你可以在逻辑页面判断下,如果点击类型是0,再弹出输入框输入参数'
-    }
-  })
-}
-
-// 搜索-联想菜单列表
-export const suggestListAPI = ({ keyworks }) => {
-  return request({
-    url: '/v1_0/suggestion',
-    params: {
-      q: keyworks
-    }
-  })
-}
-// 搜索-搜索结果列表
-export const searchResultAPI = ({ page = 1, per_page = 10, q }) => {
-  return request({
-    url: '/v1_0/search',
-    params: {
-      page,
-      per_page,
-      q
-    }
   })
 }

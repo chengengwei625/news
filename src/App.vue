@@ -1,22 +1,14 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <!-- 优化组件是否缓存 -->
+    <keep-alive exclude="Search,SearchResult,Detail,UserEdit">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import { getALLChannelsAPI } from '@/api'
-
-export default {
-  async created() {
-    try {
-      const res = await getALLChannelsAPI()
-      console.log(res)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-}
+export default {}
 </script>
 
 <style lang="less"></style>

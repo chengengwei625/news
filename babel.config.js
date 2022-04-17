@@ -6,6 +6,7 @@ module.exports = {
       {
         libraryName: 'vant',
         libraryDirectory: 'es',
+        //定制主题
         style: name => `${name}/style/less`
       },
       'vant'

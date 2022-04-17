@@ -2,14 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { NavBar, Form, Field, Button, Toast } from 'vant'
-import 'amfe-flexible'
+import 'highlight.js/styles/default.css'
 
-Vue.use(NavBar)
-Vue.use(Form)
-Vue.use(Field)
-Vue.use(Button)
-Vue.use(Toast)
+import 'amfe-flexible'
+import '@/styles/icon.less'
+import directiveObj from '@/utils/directive'
+import './VueComponent.js' //Vant组件注册
+Vue.use(directiveObj)
 Vue.config.productionTip = false
 
 new Vue({
