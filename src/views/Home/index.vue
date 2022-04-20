@@ -74,6 +74,7 @@ export default {
       //   this.articleList = res2.data.data.results
       this.$nextTick(() => {
         document.documentElement.scrollTop = this.channelScrollTObj[this.channelId]
+        document.body.scrollTop = this.channelScrollTObj[this.channelId]
       })
     },
     //添加频道
@@ -121,8 +122,15 @@ export default {
     //监听网页滚动事件
     scrollFn() {
       //document.documentElement==>html,html的scrollTop才获取得到
-      this.$route.meta.scrollT = document.documentElement.scrollTop
-      this.channelScrollTObj[this.channelId] = document.documentElement.scrollTop
+      // 谷歌浏览器内核,和安卓手机内置浏览器的内核不是同一个
+      // 获取scrol1Top方式不同
+      // 谷歌浏览器用的html的scrol1Top
+      // 有的浏览器用的body的scrol1Top
+      // Notify({
+      //   message: document.body.scrollTop
+      // })
+      this.$route.meta.scrollT = document.documentElement.scrollTop || document.boday.scrollTop
+      this.channelScrollTObj[this.channelId] = document.documentElement.scrollTop || document.boday.scrollTop
     }
   },
   components: {

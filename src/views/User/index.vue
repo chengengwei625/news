@@ -36,7 +36,9 @@
     <van-cell-group class="action-card">
       <van-cell icon="edit" title="编辑资料" is-link to="/user_edit" />
       <van-cell icon="chat-o" title="小思同学" is-link to="/chat" />
-      <van-cell class="toutiao toutiao-guanji" title="退出登录" is-link @click="quitFn" />
+      <van-cell icon="warning-o" title="退出登录" is-link @click="quitFn" />
+      <!-- icon="warning-o" -->
+      <!-- class="toutiao toutiao-guanji" -->
     </van-cell-group>
   </div>
 </template>

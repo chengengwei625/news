@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userPhoto: 'https://s1.ax1x.com/2022/04/17/LtqevF.jpg',
-    userName: ''
+    userPhoto: 'https://s3.bmp.ovh/imgs/2022/04/18/ed99bd814f653659.jpg',
+    userName: '陈耿伟'
   },
   getters: {},
   mutations: {
