@@ -1,4 +1,4 @@
-# top-news
+# news
 
 ## Project setup
 ```
